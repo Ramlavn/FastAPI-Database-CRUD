@@ -1,21 +1,28 @@
 from fastapi import APIRouter
-from bson import ObjectId
 from db_conn import conn_db
+from bson import ObjectId
+
+database, collection = conn_db()
+
 
 router = APIRouter()
 
 
-database, collection = conn_db() 
 
+@router.delete("/api/v1/data", 
+    description="Delete data from collection",
+    summary="Delete data"
+)
 
-@router.delete("/delete/{id}")
 def delete(id: str):
+
     object_id = ObjectId(id)
+    retrieved = collection.find_one({"_id":object_id})
 
-    document = collection.find_one({'_id': object_id})
+    if retrieved is not None:
 
-    if document is not None:
-        collection.delete_one({'_id': object_id})
-        return {"message": "Document deleted successfully"}
+        delete = collection.delete_one({"_id":object_id})
+        return {"Message":"Deleted successfully", "Deleted_Id":str(retrieved["_id"])}
+
     else:
-        return {"message": "Document not found"}
+        return {"Message":"Delete not successfull"}

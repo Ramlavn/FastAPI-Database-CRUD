@@ -1,8 +1,8 @@
 
-from db_conn import connect_db
+from db_conn import conn_db
 
 # Test the database connection
-test = connect_db()
+test = conn_db()
 
 if test is not None:
     print("Database connected successfully.")

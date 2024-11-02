@@ -14,7 +14,10 @@ class Put(BaseModel):
     Sex: str
     Occupation: str
 
-@router.put("/put/{id}")
+@router.put("/api/v1/data", 
+    description="Edit data in the collection",
+    summary="Edit data"
+)
 
 def update(request:Put, id: str):
     object_id = ObjectId(id)
