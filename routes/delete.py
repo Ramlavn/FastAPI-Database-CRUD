@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 
-@router.delete("/api/v1/data", 
+@router.delete("/api/v1/data/{id}", 
     description="Delete data from collection",
     summary="Delete data"
 )
