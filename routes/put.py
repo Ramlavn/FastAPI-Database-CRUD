@@ -12,9 +12,9 @@ class Put(BaseModel):
     Name: str
     Age: int
     Sex: str
-    Occupation: str
+    Role: str
 
-@router.put("/api/v1/data", 
+@router.put("/api/v1/data/{id}", 
     description="Edit data in the collection",
     summary="Edit data"
 )
