@@ -9,8 +9,8 @@ from routes.put import router as put_router
 app = FastAPI()
 
 
-app.include_router(post_router,tages=["CRUD"])
-app.include_router(get_by_id_router,tags=["CRUD"])
-app.include_router(delete_router,tages=["CRUD"])
-app.include_router(get_all_router,tages=["CRUD"])
-app.include_router(put_router,tages=["CRUD"])
+app.include_router(post_router,tages=["CRUD API"])
+app.include_router(get_by_id_router,tags=["CRUD API"])
+app.include_router(delete_router,tages=["CRUD API"])
+app.include_router(get_all_router,tages=["CRUD API"])
+app.include_router(put_router,tages=["CRUD API"])
